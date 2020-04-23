@@ -1,0 +1,9 @@
+/* .bar-chart {
+    background-color: #C7D9D9;
+} */
+
+.chart-container {
+  margin: auto;
+  width: 60%;
+  height: 80%;
+}
