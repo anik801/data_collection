@@ -52,7 +52,7 @@ def get_date_time():
     return date_time
 
 def get_id(rpi_id, room_id, date_time):
-    row_id = rpi_id + "_" + room_id + "_" + date_time
+    row_id = date_time + "_" + rpi_id + "_" + room_id
     return row_id
     
 def get_reading(rpi_id, room_id):
@@ -60,6 +60,8 @@ def get_reading(rpi_id, room_id):
     row = dict()
     row['id'] = get_id(rpi_id, room_id, date_time)
     row['date_time'] = date_time
+    row['rpi_id'] = rpi_id
+    row['room_id'] = room_id
     row['temp'] = get_temp()
     row['humidity'] = get_humidity()
     row['light'] = get_light()
@@ -69,6 +71,6 @@ def get_reading(rpi_id, room_id):
     row['motion'] = get_motion()
     row['smoke'] = get_smoke()
     row['co'] = get_CO()
-    row['natural_gas'] = get_natural_gas()
+    row['lpg'] = get_natural_gas()
     
     return row
