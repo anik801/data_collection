@@ -1,0 +1,35 @@
+https://drive.google.com/open?id=1i6y_YT7yTmmFmRZRv81I_TYU9FtUlNQF
+
+http://192.168.0.11/data_collection/
+
+http://192.168.0.6/data_collection/
+
+http://192.168.0.7/phpmyadmin
+
+https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial/all
+https://learn.adafruit.com/raspberry-pi-analog-to-digital-converters/mcp3008
+https://github.com/adafruit/Adafruit_CircuitPython_MCP3xxx
+
+https://pimylifeup.com/raspberry-pi-phpmyadmin/
+https://raspberrytips.com/install-mariadb-raspberry-pi/
+https://raspberrytips.com/web-server-setup-on-raspberry-pi/#PHPMyAdmin
+
+
+
+CREATE DATABASE test;
+CREATE USER 'root' IDENTIFIED BY 'root_password';
+GRANT ALL PRIVILEGES ON test.* To 'root'@'localhost' IDENTIFIED BY 'root_password';
+FLUSH PRIVILEGES;
+quit
+
+mysql -uroot -proot_password test
+
+CREATE TABLE IF NOT EXISTS test (
+    line_id INT AUTO_INCREMENT,
+    data VARCHAR(255) NOT NULL,
+    PRIMARY KEY (line_id)
+);
+
+INSERT INTO test (data) VALUES ("This is a test string in my database");
+
+quit
