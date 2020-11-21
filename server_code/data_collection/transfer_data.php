@@ -64,6 +64,8 @@
     }
   }
 
+  set_time_limit(3000);
   // program execution
-  transfer_data();
+  // transfer_data();
+  update_after(0);
 ?>

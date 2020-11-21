@@ -1,6 +1,6 @@
 $(document).ready(function(){
   // console.log("Hello");
-  var sensor = 'motion';
+  var sensor = 'light';
   $.ajax({
     url : "http://localhost/data_collection/get_data.php?sensor="+sensor,
     type : "GET",
@@ -25,7 +25,7 @@ $(document).ready(function(){
         datasets: [
           {
             label: sensor,
-            fill: true,
+            fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(59, 89, 152, 0.75)",
             borderColor: "rgba(59, 89, 152, 1)",

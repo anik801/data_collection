@@ -9,8 +9,6 @@
     <!-- <script src="d3.min.js"></script> -->
     <!-- <script src="scripts.js"></script> -->
 
-    <?php include "get_data_v2.php"; ?>
-
     <div class="chart-container">
       <canvas id="mycanvas"></canvas>
     </div>
