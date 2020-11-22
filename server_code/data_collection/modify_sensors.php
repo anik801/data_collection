@@ -31,9 +31,9 @@
   </div>
   <div id="modify_sensors_right_div">
       <div id="sensor_details_title_div"><b>Sensor Types</b></div>
-      <li>Type 1: Digital Sensor - this type of sensors are directly connected to the GPIO pins of the Raspberry Pi and can directly provide readings to the Raspberry Pi, for example: LDR.</li><br>
-      <li>Type 2: Analog Sensor - this type of sensors are connected to the Raspberry Pi via the MCP3008 Analogue to Digital Converter and can provide continuous readings, for example: MQ2 Gas sensor</li><br>
-      <li>Type 3: Special Sensor - this type of sensors provide a signal or beat when an event occurs and can be either digital or analog, for example: Motion sensor</li>
+      <li>Type 1: Direct Input Sensors - this type of sensors are directly connected to the GPIO pins of the Raspberry Pi and can directly provide readings to the Raspberry Pi, for example: LDR sensor.</li><br>
+      <li>Type 2: Callback Sensor - this type of sensors provide a signal or beat when an event occurs. The signal here is refered as the callback, for example: Motion sensor.</li><br>
+      <li>Type 3: Specific Code Sensor - this type of sensors require either unique set of instructions or some specific libraries to operate, for example: DHT11 sensor.</li>
   </div>
 </div>
 
