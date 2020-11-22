@@ -1,0 +1,37 @@
+Install the following packages in raspberry pi:
+apache2
+phpmyadmin
+mariadb 
+
+Add the phpmyadmin information in the apache2 config file. 
+
+Create a database and password, the default we are using is 
+username: root
+password: root_password
+We need to use this information in the localdb.py file. 
+
+sudo mysql -u root -p
+CREATE DATABASE test_db;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'root_password' WITH GRANT OPTION;
+quit
+
+Clear port 80 if needed using the following command: 
+sudo /etc/init.d/nginx stop
+
+Restart apache2 server using the following command:
+sudo service apache2 restart
+
+Install python packages using the following commands:
+sudo pip3 install mysql-connector-python
+sudo pip3 install mysql-connector-python-rf
+sudo pip3 install timeloop
+sudo pip3 install Adafruit-GPIO
+sudo pip3 install Adafruit-MCP3008
+sudo pip3 install dht11
+
+
+Download the project repository from GitHub
+Extract rpi_code directory
+Open rpi_code/localdb.py file to update username and password of mariadb in line 24.
+Open rpi_code/main.py file to set the rpi_id according to the id provided in the central server.
+Run main.py
