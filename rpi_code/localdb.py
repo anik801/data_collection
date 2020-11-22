@@ -113,8 +113,8 @@ def find_sensor_in_local_db(rpi_id, sensor):
 ## @param sensor_name, sensor_type, sensor_pin is corresponding information to match
 ## @return true if match found and false otherwise
 def find_match_in_data(data, sensor_name, sensor_type, sensor_pin):
-    for row in data:        
-        if row['sensor'] == sensor_name and row['type'] == sensor_type and row['pin'] == sensor_pin:
+    for row in data:
+        if row['sensor'] == sensor_name and row['type'] == str(sensor_type) and row['pin'] == str(sensor_pin):
             return True
     return False
 
@@ -155,7 +155,7 @@ def sync_db(rpi_id):
     server.update_rpi_status(rpi_id)
     cursor.close()
     cursor_2.close()
-       
+
 ## method to get local sensor information
 ## @param rpi_id is the corresponding raspberry pi id
 ## @return sensor information 

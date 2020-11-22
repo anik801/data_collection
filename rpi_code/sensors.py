@@ -15,14 +15,15 @@ local_data_dict = dict()
 
 ## TYPE 3 SENSOR CODES - CHANGE HERE IF NEEDED ##########################
 ##DHT11 SENSOR###########################################################
-import Adafruit_DHT
-dht_sensor = Adafruit_DHT.DHT11
-dht_pin = 4
 # returns temperature (centigrade) and humidity (percentage) readings 
-def get_temperature_humidity():
+def get_temperature_humidity(sensor_pin):
+    import dht11
+    dht_sensor = dht11.DHT11(pin = sensor_pin)
     while True:
-        humidity, temperature = Adafruit_DHT.read(dht_sensor, dht_pin)
-        if humidity is not None and temperature is not None:
+        dht_reading = dht_sensor.read()
+        if dht_reading.is_valid():
+            temperature = dht_reading.temperature
+            humidity = dht_reading.humidity
             return temperature, humidity
         
 #def get_humidity():
@@ -76,7 +77,9 @@ def sensor_callback(sensor_pin):
 ## method to initialize callback sensors
 ## @param rpi_id refers to the corresponding raspberry pi 
 def init_sensors(rpi_id):
+    GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
+    GPIO.cleanup()
     sensor_list = localdb.get_local_sensors(rpi_id)    
     for row in sensor_list:
         sensor_name = row[0]
@@ -108,9 +111,9 @@ def get_sensor_data(sensor_name, sensor_type, sensor_pin):
         ## CHANGE HERE IF NEEDED
         ## sensors that require special code 
         if sensor_name == "temperature":
-            data, _ = get_temperature_humidity()
+            data, _ = get_temperature_humidity(sensor_pin)
         elif sensor_name == "humidity":
-            _, data = get_temperature_humidity()
+            _, data = get_temperature_humidity(sensor_pin)
         elif sensor_name == "smoke":
             data, _, _ = get_mq2_reading()
         elif sensor_name == "co":
