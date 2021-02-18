@@ -9,7 +9,8 @@ Created on Thu Mar 26 00:09:10 2020
 import requests
 
 ## field variables
-server_url = "http://192.168.0.6/data_collection/"
+# server_url = "http://192.168.0.6/data_collection/"
+server_url = "http://building-data-lite.com/"
 
 ## method to get the latest entry in local database of given rpi and room 
 ## @param rpi_id is given to find require information
@@ -17,7 +18,10 @@ server_url = "http://192.168.0.6/data_collection/"
 def get_latest_entry(rpi_id):
     row_data = {"rpi_id": rpi_id}
     url = server_url + "get_latest_entry.php"
-    response = requests.post(url, params=row_data)
+    headers = {"User-Agent": "Mozilla Firefox"}
+    response = requests.post(url=url, params=row_data, headers=headers)
+  
+#     response = requests.post(url, params=row_data)
 #    print(resp.text)
     return response.text
 
@@ -26,7 +30,10 @@ def get_latest_entry(rpi_id):
 def send_file(file_name):
     url = server_url + "file_receive.php"
     files = {'file': open(file_name, 'rb')}
-    r = requests.post(url, files=files)
+    headers = {"User-Agent": "Mozilla Firefox"}
+    r = requests.post(url=url, files=files, headers=headers)
+    
+#     r = requests.post(url, files=files)
     if r.text == "1":
         print("Error uploading file\n")
         ## TODO: insert error in error log
@@ -38,21 +45,29 @@ def send_file(file_name):
 def check_rpi_status(rpi_id):
     row_data = {"rpi_id": rpi_id}
     url = server_url + "get_rpi_status.php"
-    response = requests.post(url, params=row_data)
+    headers = {"User-Agent": "Mozilla Firefox"}
+    response = requests.post(url=url, params=row_data, headers=headers)
+    
+#     response = requests.post(url, params=row_data)
     return response.text
 
 def update_rpi_status(rpi_id):
     row_data = {"rpi_id": rpi_id}
     url = server_url + "update_rpi_status.php"
-    response = requests.post(url, params=row_data)
+    headers = {"User-Agent": "Mozilla Firefox"}
+    response = requests.post(url=url, params=row_data, headers=headers)
+    
+#     response = requests.post(url, params=row_data)
+    
     
 ## method to get sensor list from server 
 ## @param rpi_id id will be sent to the server
 ## @return sensor list in json format done in php
 def get_sensor_list(rpi_id):
     row_data = {"rpi_id": rpi_id}
+    headers = {"User-Agent": "Mozilla Firefox"}
     url = server_url + "get_sensor_list_of_rpi.php"
-    response = requests.post(url, params=row_data)
+    response = requests.post(url=url, params=row_data, headers=headers)
     return response.text
 
 

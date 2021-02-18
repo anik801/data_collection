@@ -91,11 +91,21 @@ def main():
 
 def testFunction():
     print("Test Function")
-    sensors.init_sensors(rpi_id)
-    localdb_routine();
+#     last_date_time = server.get_latest_entry(rpi_id)
+#     file_name = localdb.extract_to_csv(last_date_time, rpi_id) ## sends data to server
+#         
+#     print(file_name)
+    
+#     server.get_sensor_list(rpi_id)
+#     localdb.sync_db(rpi_id)
+#     sensors.init_sensors(rpi_id)
+#     localdb_routine();
+#     reading = sensors.get_sensor_readings(rpi_id)
+#     print("data:")
+#     print(reading)
     
 
 ## define main method call
 if __name__ == "__main__":
     main()
-#    testFunction()
+#     testFunction()

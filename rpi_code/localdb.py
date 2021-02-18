@@ -81,7 +81,7 @@ def extract_to_csv(date_time, rpi_id):
     file_name = rpi_id + ".csv"
     mariadb_connection, cursor = mariadb_con()
 #    sql = "SELECT * FROM `storage_v2` WHERE (`rpi_id`='"+rpi_id+"' AND `date_time`>'"+date_time+"')" ## ENABLE THIS
-    sql = "SELECT * FROM `storage_v2` WHERE (`rpi_id`='"+rpi_id+"' AND `date_time`>'"+date_time+"') LIMIT 5"
+    sql = "SELECT * FROM `storage_v2` WHERE (`rpi_id`='"+rpi_id+"' AND `date_time`>'"+date_time+"')"
     cursor.execute(sql)
     
     rows=cursor.fetchall()
@@ -122,6 +122,7 @@ def find_match_in_data(data, sensor_name, sensor_type, sensor_pin):
 ## param rpi_id refers to the current raspberry pi id
 def sync_db(rpi_id):
     sensor_info = server.get_sensor_list(rpi_id);
+#     print(sensor_info)
 #    temp_sensor_info = '[{"sensor": "co", "type": "1", "pin": "1"}, {"sensor": "flame", "type": "1", "pin": "1"}, {"sensor": "humidity", "type": "1", "pin": "1"}, {"sensor": "light", "type": "1", "pin": "1"}, {"sensor": "lpg", "type": "1", "pin": "1"}, {"sensor": "motion", "type": "1", "pin": "1"}, {"sensor": "smoke", "type": "1", "pin": "1"}, {"sensor": "sound", "type": "1", "pin": "1"}, {"sensor": "temp", "type": "1", "pin": "1"}, {"sensor": "vibration", "type": "1", "pin": "1"}]'
 #    updated_sensors = json.dumps(temp_sensor_info)
     updated_sensors = json.loads(sensor_info)
