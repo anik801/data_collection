@@ -18,6 +18,15 @@
     <script type="text/javascript" src="js/Chart.js"></script>
     <script type="text/javascript" src="js/linegraph.js"></script>
 
+    <?php
+      $pass = "bdlAdmin@2021";
+      $hash = hash('sha512', $pass);
+
+      echo $hash;
+      // echo strlen($hash);
+    ?>
+
+
   </body>
 
 </html>

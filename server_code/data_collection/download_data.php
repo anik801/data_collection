@@ -11,7 +11,8 @@
       $sensors = $sensors."`$str`,";
     }
     $sensors = substr($sensors, 0, -1);
-    $sql = "SELECT `date_time`, $sensors FROM `storage_v2` WHERE (`rpi_id`='$rpi_id' && `date_time`>='$t1' && `date_time`<='$t2') ORDER BY `date_time` DESC";
+    $table_name = "rpi_" . $rpi_id;
+    $sql = "SELECT `date_time`, $sensors FROM `$table_name` WHERE (`rpi_id`='$rpi_id' && `date_time`>='$t1' && `date_time`<='$t2') ORDER BY `date_time` DESC";
 
     $result = mysqli_query($con, $sql);
 

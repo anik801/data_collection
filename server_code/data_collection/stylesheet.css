@@ -81,3 +81,29 @@
   margin: auto;
   width: 40%;
 }
+
+#modify_sensors_btn{
+  display: none;
+}
+
+#modify_rpi_btn{
+  display: none;
+}
+
+#login_table{
+  margin: auto;
+  margin-top: 5%;
+  width: 60%;
+}
+
+#main_body_div{
+  display: none;
+}
+
+#title_text{
+  text-decoration: none;
+}
+
+#logout_div{
+  margin-left: 5px;
+}
