@@ -3,6 +3,15 @@ apache2
 phpmyadmin
 mariadb 
 
+Steps: 
+Link: https://randomnerdtutorials.com/raspberry-pi-apache-mysql-php-lamp-server/
+
+sudo apt install apache2 -y
+hostname -I
+sudo apt install mariadb-server php-mysql -y
+sudo service apache2 restart
+sudo mysql_secure_installation
+
 Add the phpmyadmin information in the apache2 config file. 
 
 Create a database and password, the default we are using is 
@@ -14,6 +23,10 @@ sudo mysql -u root -p
 CREATE DATABASE test_db;
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'root_password' WITH GRANT OPTION;
 quit
+
+sudo apt install phpmyadmin -y
+sudo phpenmod mysqli
+sudo service apache2 restart
 
 Clear port 80 if needed using the following command: 
 sudo /etc/init.d/nginx stop

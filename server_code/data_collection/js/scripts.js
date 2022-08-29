@@ -1,9 +1,13 @@
+$.ajaxSetup({ cache: false });
+
 function update_sensor_table() {
   if (window.XMLHttpRequest) {
     xmlhttp=new XMLHttpRequest();
   } else {
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
+
+
   xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState==4 && xmlhttp.status==200) {
       document.getElementById("table_div").innerHTML=xmlhttp.responseText;
@@ -22,6 +26,7 @@ function update_sensor_table() {
 
 
   xmlhttp.open("GET","fetch_data_for_table.php?rpi_id="+rpi_id+"&start="+start+"&end="+end+"&sensor_id="+sensor_id, true);
+  xmlhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
   xmlhttp.send();
 }
 
@@ -40,7 +45,8 @@ function get_sersor_name(sensor){
 function show_sensor_chart(rpi_id, sensor, start, end){
   // var sensor = 'temp';
   $.ajax({
-    url : "http://localhost/data_collection/get_sensor_data.php?sensor="+sensor+"&rpi_id="+rpi_id+"&start="+start+"&end="+end,
+    // url : "http://localhost/data_collection/get_sensor_data.php?sensor="+sensor+"&rpi_id="+rpi_id+"&start="+start+"&end="+end,
+    url : "get_sensor_data.php?sensor="+sensor+"&rpi_id="+rpi_id+"&start="+start+"&end="+end,
     type : "GET",
     success : function(data){
 
@@ -207,6 +213,7 @@ function updateSensorListForModificaiton(){
   var rpi_id = document.getElementById("placement_select").value;
 
   xmlhttp.open("GET","fetch_sensors_for_edit.php?rpi_id="+rpi_id, true);
+  xmlhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
   xmlhttp.send();
 }
 
@@ -227,6 +234,7 @@ function rpiSelectedInIndex(rpi_id){
 
 
   xmlhttp.open("GET","fetch_sensors_in_select.php?rpi_id="+rpi_id, true);
+  xmlhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
   xmlhttp.send();
 }
 
@@ -246,6 +254,7 @@ function rpiSelectedInDataDownload(rpi_id){
   }
 
   xmlhttp.open("GET","fetch_sensors_for_data_download.php?rpi_id="+rpi_id, true);
+  xmlhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
   xmlhttp.send();
 }
 
@@ -272,6 +281,7 @@ function showRecentErrors(){
   }else{
     xmlhttp.open("GET","fetch_recent_errors.php?rpi_id="+rpi_id, true);
   }
+  xmlhttp.setRequestHeader("Cache-Control", "no-cache, no-store, max-age=0");
   xmlhttp.send();
 }
 
@@ -306,4 +316,81 @@ function clickedDownloadDataBtn(){
     var url = "download_data.php?rpi_id="+rpi_id+"&t1="+start_date_time+"&t2="+end_date_time+"&selected_sensors="+selected_sensors;
     document.location.href = url;
   }
+}
+
+function clickedAddEnviroPlusBtn(){
+  rpi_position = document.getElementById("rpi_enviro_plus_position_input").value;
+  rpi_position = rpi_position.trim();
+  if(rpi_enviro_plus_position_input.length == 0){
+    alert("Please enter the location of the newly placed Raspberry Pi.");
+  }else{
+    document.location.href = "add_enviro_plus.php?pos="+rpi_position;
+  }
+}
+
+function clickedAddEnviroBtn(){
+  rpi_position = document.getElementById("rpi_enviro_position_input").value;
+  rpi_position = rpi_position.trim();
+  if(rpi_enviro_position_input.length == 0){
+    alert("Please enter the location of the newly placed Raspberry Pi.");
+  }else{
+    document.location.href = "add_enviro.php?pos="+rpi_position;
+  }
+}
+
+function invalidLoginAttempt(){
+  alert("Invalid username/password!");
+  document.getElementById("username_input").value = "";
+  document.getElementById("password_input").value = "";
+}
+
+function checkUserCredentials(username, password){
+  $.ajax({
+    url: "check_user_credentials.php?username="+username+"&password="+password,
+    type: 'GET',
+    dataType: 'json', // added data type
+    success: function(res) {
+      console.log(res);
+      // alert(res);
+      if(res.available){
+        document.getElementById("login_div").style.display = "none";
+        showUserPage();
+      }else{
+        invalidLoginAttempt();
+      }
+    }
+  });
+}
+
+function showUserPage(){
+  // document.getElementById("login_div").style.display = "none";
+  document.getElementById("modify_sensors_btn").style.display = "inline";
+  document.getElementById("modify_rpi_btn").style.display = "inline";
+  document.getElementById("main_body_div").style.display = "inline";
+}
+
+function showGuestPage(){
+  // document.getElementById("login_div").style.display = "none";
+  document.getElementById("modify_sensors_btn").style.display = "none";
+  document.getElementById("modify_rpi_btn").style.display = "none";
+  document.getElementById("main_body_div").style.display = "inline";
+}
+
+function clickedGuestLoginBtn(){
+  document.location.href = "guest_login.php";
+}
+
+function clickedUserLoginBtn(){
+  var username = document.getElementById("username_input").value;
+  var password = document.getElementById("password_input").value;
+
+  if(username == "" || password == ""){
+    alert("Username/password cannot be empty!");
+  }else{
+    checkUserCredentials(username, password);
+  }
+}
+
+function logOutButtonPressed(){
+  document.location.href="destroy_session.php";
 }

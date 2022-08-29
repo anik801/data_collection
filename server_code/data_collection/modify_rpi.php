@@ -15,10 +15,18 @@
         </fieldset>
         <tr>
           <td>
-            <input type="button" value="Back" class="btn btn-warning btn-block" onclick="goToDashboard();">
-          </td>
-          <td colspan="3">
             <input type="button" value="Add New Raspberry Pi" class="btn btn-light btn-block" data-toggle="modal" data-target="#add_rpi_modal">
+          </td>
+          <td>
+            <input type="button" value="Add New RPi-0 & Enviro+" class="btn btn-light btn-block" data-toggle="modal" data-target="#add_enviro_plus_modal">
+          </td>
+          <td>
+            <input type="button" value="Add New RPi-0 & Enviro" class="btn btn-light btn-block" data-toggle="modal" data-target="#add_enviro_modal">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <input type="button" value="Back" class="btn btn-warning btn-block" onclick="goToDashboard();">
           </td>
         </tr>
       </tbody>
@@ -54,6 +62,72 @@
         <p>Please go to the "Modify Sensors" page to add sensors to the newly added Raspberry Pi.</p>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" onclick="clickedAddRpiBtn();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add_enviro_plus_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Raspberry Pi Zero with Enviro+</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Raspberry Pi Position</td>
+              <td>
+                <input type="text" id="rpi_enviro_plus_position_input" class="form-control">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <p>Please go to the "Modify Sensors" page to add sensors to the newly added Raspberry Pi.</p>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="clickedAddEnviroPlusBtn();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add_enviro_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Raspberry Pi Zero with Enviro+</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Raspberry Pi Position</td>
+              <td>
+                <input type="text" id="rpi_enviro_position_input" class="form-control">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <p>Please go to the "Modify Sensors" page to add sensors to the newly added Raspberry Pi.</p>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="clickedAddEnviroBtn();">Save changes</button>
       </div>
     </div>
   </div>
