@@ -10,7 +10,7 @@ import requests
 
 ## field variables
 # server_url = "http://192.168.0.6/data_collection/"
-server_url = "http://building-data-lite.com/"
+server_url = "https://building-data-lite.com/"
 
 ## method to get the latest entry in local database of given rpi and room 
 ## @param rpi_id is given to find require information
