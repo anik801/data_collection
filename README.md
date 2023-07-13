@@ -28,7 +28,7 @@ The BDL system's GUI offers five functions to users. These functions include dat
 
 ![14_data_5.png](image/14_data_5.png)
 
-## **Source Code and Sample Data (H2)**
+## **Source Code and Sample Data **
 
 [rpi_code](rpi_code) contains the code that runs on the Raspberry Pi (we tested Raspberry Pi 4 model B and Raspberry Pi Zero; operating system: Raspberry Pi OS).
 
@@ -36,7 +36,7 @@ The BDL system's GUI offers five functions to users. These functions include dat
 
 [sample_data](sample_data) contains some sample data collected by one deployed device of the BDL system.
 
-## **Project Team and Contributors (H2)**
+## **Project Team and Contributors **
 
 [Dr. Ray Gao](http://www.raygaoai.com/)
 
