@@ -36,7 +36,7 @@ The BDL system's GUI offers five functions to users. These functions include dat
 
 [sample_data](sample_data) contains some sample data collected by one deployed device of the BDL system.
 
-[This repository](https://github.com/anik801/BDL_data_1) contains more published data.
+For more published data, please check out [this repository](https://github.com/anik801/BDL_data_1) .
 
 ## Project Team and Contributors
 
