@@ -2,7 +2,7 @@
 
 A multitude of building management systems, home automation systems, and the rapidly growing number of Internet of Things (IoT) devices highly rely on environmental monitoring. The use of indoor environmental data can significantly enhance the building performance and improve the living and working experiences of occupants. Nonetheless, such data are in short supply primarily because the existing technologies for facility monitoring are costly and often limited to specific building systems.
 
-To address the problem of limited availability of indoor environment data, [Dr. Ray Gao](http://www.raygaoai.com/) (Xinghua), [Sheik Murad Hassan Anik](https://www.linkedin.com/in/anik801/), and [Dr. Na Meng](https://people.cs.vt.edu/nm8247/) at Virginia Polytechnic Institute and State University (Virginia Tech) developed a prototype of a cost-efficient, distributed, scalable, and portable indoor environmental data gathering system named [Building Data Lite (BDL)](https://building-data-lite.com/). BDL is built on Raspberry Pi computers and a diverse array of sensors such as those for temperature, humidity, light, motion, sound, vibration, and various gas types. The system comprises a distributed sensing network and a centralized server, which offers a web-based graphical user interface allowing users to access the gathered data online.
+To address the problem of limited availability of indoor environment data, [Dr. Ray Gao](http://www.ray-gao.com/) (Xinghua), [Sheik Murad Hassan Anik](https://www.linkedin.com/in/anik801/), and [Dr. Na Meng](https://people.cs.vt.edu/nm8247/) at Virginia Polytechnic Institute and State University (Virginia Tech) developed a prototype of a cost-efficient, distributed, scalable, and portable indoor environmental data gathering system named [Building Data Lite (BDL)](https://building-data-lite.com/). BDL is built on Raspberry Pi computers and a diverse array of sensors such as those for temperature, humidity, light, motion, sound, vibration, and various gas types. The system comprises a distributed sensing network and a centralized server, which offers a web-based graphical user interface allowing users to access the gathered data online.
 
 Published research article: [A cost-effective, scalable, and portable IoT data infrastructure for indoor environment sensing](papers/BDL.pdf)
 
@@ -40,7 +40,7 @@ For more published data, please check out [this repository](https://github.com/a
 
 ## Project Team and Contributors
 
-[Dr. Ray Gao](http://www.raygaoai.com/)
+[Dr. Ray Gao](http://www.ray-gao.com/)
 
 [Sheik Murad Hassan Anik (soon to be PhD)](https://www.linkedin.com/in/anik801/)
 
